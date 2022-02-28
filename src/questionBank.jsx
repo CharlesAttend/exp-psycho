@@ -68,18 +68,23 @@ const ReactionTimeTest = ({callback}) => {
     const [compteur, setCompteur] = useState(5);
     const [reaction, setReaction] = useState(false);
     const [timeAfter, setTimeAfter] = useState(0);
+    let
+    
 
     if(compteur != 0){
-        setInterval(() => {
+        let intervalID = setInterval(() => {
             setCompteur(compteur-1)
         }, 1000);
     }
     else {
+        clearInterval(intervalID);
+        setCompteur(5);
         const timeToWait = getRandomInt(1000, 3000);
         const timeBefore = Date.now();
         setTimeout(() => {
             setReaction(true)
-            setCompteur(5)
+            // setCompteur(5)
+            setIsStarted(true)
         }, timeToWait);
     }
 

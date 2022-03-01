@@ -7,8 +7,8 @@ function App() {
 
   const [startingMood, setStartingMood] = useState("")
   const [RTList, setRTList] = useState([]);
-  const totalQuestion = 6;
-  const emotion = choose(['sad', 'neutral'])
+  const [totalQuestion, setTotalQuestion] = useState(6);
+  const [emotion, setEmotion] = useState(choose(['sad', 'neutral']))
   console.log(emotion);
 
   const handleAnswerButtonClick = (answerOption) => {

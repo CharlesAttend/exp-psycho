@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useForm } from'react-hook-form';
+
 const Question = ({id, onRTUpdate, emotion, onMoodUpdate}) => {
     const QuestionList = [
         Question0(),
@@ -19,30 +21,29 @@ const Question0 = () => (
     <div>
         <div>Merci de participer à mon expérience ! Lisez bien les consignes à chaque étapes.</div>
         <div>Le tout prends moins de dix minutes, l'expérience est à faire seule</div>
+        <div>N'actualisé pas la page, vous ne pouvez pas retourner en arrière</div>
     </div>
 )
 
 const Question1 = (onMoodUpdate) => {
-    const [name, setName] = useState("")
-    
-    const handleSubmit = (event) => {
-        return 0
-    }
-    return 0
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const onSubmit = data => console.log(data);
+
     return (
-    <div>
-        <form onSubmit={handleSubmit}>
-            <label>
-                Votre nom:
-                <input type="text" value="Charles"/>
-            </label>
-            <input type="submit" value="Submit" />
-            <label htmlFor="">
-                Votre mood actuel
-                <input type="number" id="name" name="name" required minLength="4" maxLength="0" size="10"></input>
-            </label>
-        </form>
-    </div>
+        <div>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <label>
+                    Votre prénom:
+                    <input type="text" defaultValue="Prénom" {...register('firstName', { required: true })} />
+                </label>
+                <label htmlFor="">
+                    Votre mood actuel
+                    <input type="range" name="name" {...register('mood', { required: true, min: 0, max: 10 })}></input>
+                </label>
+                {errors.exampleRequired && <span>This field is required</span>}
+                <input type="submit"/>
+            </form>
+        </div>
     )
 }
 
@@ -54,7 +55,7 @@ const Question2 = () => (
 )
 
 const Question3 = (emotion) => {
-    const sadVid = <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/oxfwLIKTyFk?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    const sadVid = <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/oxfwLIKTyFk?controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
     const neutralVid = <div>neutral vid</div>
     return (<div>
         {emotion==="sad" ? sadVid : neutralVid} 

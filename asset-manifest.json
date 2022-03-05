@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/CharlesAttend/exp-psycho/static/css/main.3c4f2699.css",
+    "main.js": "/CharlesAttend/exp-psycho/static/js/main.65753acf.js",
+    "index.html": "/CharlesAttend/exp-psycho/index.html",
+    "main.3c4f2699.css.map": "/CharlesAttend/exp-psycho/static/css/main.3c4f2699.css.map",
+    "main.65753acf.js.map": "/CharlesAttend/exp-psycho/static/js/main.65753acf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3c4f2699.css",
+    "static/js/main.65753acf.js"
+  ]
+}

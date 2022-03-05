@@ -24,15 +24,17 @@ function App() {
   };
   
   return (
-    <div className="App">
-      <div>Question {currentQuestion} sur {totalQuestion}</div>
-      <Question className="h-10" id={currentQuestion} 
+    <div className="h-screen bg-gray-100 flex flex-col items-center justify-center">
+      <div className='bg-white shadow-xl p-7 h-1/2 w-full flex flex-col items-center justify-between'>
+      <Question id={currentQuestion} 
         onRTUpdate={setRTList}
         emotion={emotion}
         setSurvey={setSurvey}
         setCurrentQuestion={setCurrentQuestion}
         handleSubmitButtonClick={handleSubmitButtonClick}
-      />
+        />
+        <div className='mt-2'>Question {currentQuestion} sur {totalQuestion}</div>
+      </div>
     </div>
   );
 }

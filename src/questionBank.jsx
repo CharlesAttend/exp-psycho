@@ -58,7 +58,7 @@ const Survey = (setCurrentQuestion, setSurvey) => {
                         )}
                     </select>
                 </label>
-                <input className="mt-7" type="submit" value="Valider 👌"/>
+                <input className="mt-7 text-xl p-2 border-2 rounded-md hover:bg-gray-50" type="submit" value="Valider 👌"/>
             </form>
         </div>
     )
@@ -80,11 +80,11 @@ const ConsigneVideo = (setCurrentQuestion, emotion) => {
 }
 
 const QuestionVideo = (setCurrentQuestion, emotion) => {
-    const sadVid = <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/oxfwLIKTyFk?controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-    const neutralVid = <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Jwm4DPCje1U?controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    const sadVid = <iframe src="https://www.youtube-nocookie.com/embed/oxfwLIKTyFk?controls=0&autoplay=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    const neutralVid = <iframe src="https://www.youtube-nocookie.com/embed/Jwm4DPCje1U?controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
     return (
-        <div className="h-full flex flex-col justify-between">
-            <div>{emotion==="sad" ? sadVid : neutralVid}</div>
+        <div className="h-full flex flex-col justify-between items-center">
+            <div className="video-container">{emotion==="sad" ? sadVid : neutralVid}</div>
             <NextQuestionButton setCurrentQuestion={setCurrentQuestion}/>
         </div>
     )
@@ -197,7 +197,7 @@ const FinalQuestion = (setCurrentQuestion, handleSubmitButtonClick) => (
     <div className="h-full flex flex-col items-center justify-between">
         <div>
             <div>C'est terminé, merci beaucoup de votre participation !</div>
-            <div>Vous pouvez envoyer vos résultats en cliquant sur le dernier bouton !</div>
+            <div>Vous pouvez envoyer vos résultats en cliquant sur le dernier bouton, puis fermer la page.</div>
         </div>
         <button className="text-xl p-2 border-2 rounded-md hover:bg-gray-50" 
             onClick={(e) => handleSubmitButtonClick()}>

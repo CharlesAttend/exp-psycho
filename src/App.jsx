@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Question from './questionBank'
-
+import './App.css'
 
 function App() {
   const [currentQuestion, setCurrentQuestion] = useState(0);

@@ -80,7 +80,7 @@ const ConsigneVideo = (setCurrentQuestion, emotion) => {
 }
 
 const QuestionVideo = (setCurrentQuestion, emotion) => {
-    const sadVid = <iframe src="https://www.youtube-nocookie.com/embed/oxfwLIKTyFk?controls=0&autoplay=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    const sadVid = <iframe src="https://www.youtube-nocookie.com/embed/oxfwLIKTyFk?controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
     const neutralVid = <iframe src="https://www.youtube-nocookie.com/embed/Jwm4DPCje1U?controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
     return (
         <div className="h-full flex flex-col justify-between items-center">

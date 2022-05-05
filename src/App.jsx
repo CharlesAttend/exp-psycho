@@ -39,8 +39,8 @@ function App() {
   );
 }
 
-function choose(choices) {
-  var index = Math.floor(Math.random() * choices.length);
+const choose = (choices) => {
+  let index = Math.floor(Math.random() * choices.length);
   return choices[index];
 }
 

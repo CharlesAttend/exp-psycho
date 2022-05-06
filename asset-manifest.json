@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/exp-psycho/static/css/main.ca2af390.css",
-    "main.js": "/exp-psycho/static/js/main.7912df88.js",
+    "main.css": "/exp-psycho/static/css/main.a984bef5.css",
+    "main.js": "/exp-psycho/static/js/main.32dffc66.js",
     "index.html": "/exp-psycho/index.html",
-    "main.ca2af390.css.map": "/exp-psycho/static/css/main.ca2af390.css.map",
-    "main.7912df88.js.map": "/exp-psycho/static/js/main.7912df88.js.map"
+    "main.a984bef5.css.map": "/exp-psycho/static/css/main.a984bef5.css.map",
+    "main.32dffc66.js.map": "/exp-psycho/static/js/main.32dffc66.js.map"
   },
   "entrypoints": [
-    "static/css/main.ca2af390.css",
-    "static/js/main.7912df88.js"
+    "static/css/main.a984bef5.css",
+    "static/js/main.32dffc66.js"
   ]
 }

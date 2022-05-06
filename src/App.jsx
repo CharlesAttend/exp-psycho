@@ -6,6 +6,7 @@ function App() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const [survey, setSurvey] = useState("")
+  const [surveyAfter, setSurveyAfter] = useState("")
   const [RTList, setRTList] = useState([]);
   const [totalQuestion, _setTotalQuestion] = useState(8);
   const [emotion, _setEmotion] = useState(choose(['sad', 'neutral']))
@@ -13,10 +14,15 @@ function App() {
 
   const handleSubmitButtonClick = () => {
       //do web request
+      const body = {
+        survey: {...survey, ...surveyAfter},
+        emotion: emotion,
+        reaction_time: RTList 
+      }
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ survey: survey, emotion: emotion, reaction_time: RTList })
+        body: JSON.stringify(body)
       };
       fetch('https://621bb200768a4e10209a9b6e.mockapi.io/result', requestOptions)
       .then(response => response.json())
@@ -32,6 +38,7 @@ function App() {
         setSurvey={setSurvey}
         setCurrentQuestion={setCurrentQuestion}
         handleSubmitButtonClick={handleSubmitButtonClick}
+        setSurveyAfter={setSurveyAfter}
         />
         <div className='mt-2'>Question {currentQuestion} sur {totalQuestion}</div>
       </div>

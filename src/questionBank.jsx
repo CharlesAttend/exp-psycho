@@ -22,8 +22,9 @@ const Question = ({ id, setCurrentQuestion, onRTUpdate, emotion, setSurvey, hand
 const Accueil = (setCurrentQuestion) => (
     <div className="h-full flex flex-col justify-between items-center">
         <div>
-            <div>Merci de participer à mon expérience ! Lisez bien les consignes à chaque étapes et prenez votre temps.</div>
-            <div>Le tout prends moins de dix minutes, l'expérience est à faire seule, dans un endroit calme</div>
+            <div>Merci de participer à mon expérience ! </div>
+            <div className="font-bold">Lisez bien les consignes à chaque étapes et prenez votre temps.</div>
+            <div>Le tout prends moins de cinq minutes, l'expérience est à faire seule, dans un endroit calme</div>
             <div>N'actualisez pas la page, vous ne pouvez pas retourner en arrière</div>
         </div>
         <NextQuestionButton setCurrentQuestion={setCurrentQuestion} />
@@ -67,9 +68,8 @@ const Survey = (setCurrentQuestion, setSurvey) => {
                         )}
                     </select>
                 </label>
-
                 <label>
-                    Entrer le numéros de la case de la grille qui correspond le mieux à votre état émotionnel actuelle :
+                    Entrez le numéros de la case de la grille qui correspond le mieux à votre état émotionnel actuelle :
                     <br />
                     <input className="ml-2" type="number" placeholder="Numéros case grille" {...register('moodBefore', { required: true })} />
                 </label>
@@ -95,8 +95,8 @@ const ConsigneVideo = (setCurrentQuestion, emotion) => {
 }
 
 const QuestionVideo = (setCurrentQuestion, emotion) => {
-    const sadVid = <iframe src="https://www.youtube-nocookie.com/embed/oxfwLIKTyFk?controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-    const neutralVid = <iframe src="https://www.youtube-nocookie.com/embed/Jwm4DPCje1U?controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    const sadVid = <iframe src="https://www.youtube-nocookie.com/embed/oxfwLIKTyFk?controls=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    const neutralVid = <iframe src="https://www.youtube-nocookie.com/embed/Jwm4DPCje1U?controls=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
     return (
         <div className="h-full flex flex-col justify-between items-center">
             <div className="video-container">{emotion === "sad" ? sadVid : neutralVid}</div>

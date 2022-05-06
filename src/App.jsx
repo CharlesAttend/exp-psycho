@@ -18,7 +18,8 @@ function App() {
         survey: {...survey, ...surveyAfter},
         emotion: emotion,
         reaction_time: RTList 
-      }
+      };
+      console.log(body);
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -31,7 +32,7 @@ function App() {
   
   return (
     <div className="h-screen bg-gray-100 flex flex-col items-center justify-center">
-      <div className='bg-white shadow-xl p-7 h-1/2 w-full flex flex-col items-center justify-between'>
+      <div className='bg-white shadow-xl p-7 h-3/4 w-full flex flex-col items-center justify-between'>
       <Question id={currentQuestion} 
         onRTUpdate={setRTList}
         emotion={emotion}
@@ -40,7 +41,7 @@ function App() {
         handleSubmitButtonClick={handleSubmitButtonClick}
         setSurveyAfter={setSurveyAfter}
         />
-        <div className='mt-2'>Question {currentQuestion} sur {totalQuestion}</div>
+        <div className='my-2'>Question {currentQuestion} sur {totalQuestion}</div>
       </div>
     </div>
   );

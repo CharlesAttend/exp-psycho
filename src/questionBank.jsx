@@ -24,8 +24,8 @@ const Accueil = (setCurrentQuestion) => (
     <div className="h-full flex flex-col justify-between items-center">
         <div>
             <div>Merci de participer à mon expérience ! </div>
-            <div className="font-bold">Lisez bien les consignes à chaque étapes et prenez votre temps.</div>
-            <div>Le tout prends moins de cinq minutes, l'expérience est à faire seule, dans un endroit calme</div>
+            <div className="font-bold">Lisez bien les consignes à chaque étape et prenez votre temps.</div>
+            <div>Le tout prend moins de cinq minutes, l'expérience est à faire seule, dans un endroit calme</div>
             <div>N'actualisez pas la page, vous ne pouvez pas retourner en arrière</div>
         </div>
         <NextQuestionButton setCurrentQuestion={setCurrentQuestion} />
@@ -69,7 +69,7 @@ const Survey = (setCurrentQuestion, setSurvey) => {
                 </label>
                 <label>
                     <div className="text-left">
-                        Entrez le numéros de la case de la grille qui correspond le mieux à votre état émotionnel actuelle :
+                        Entrez le numéros de la case de la grille qui correspond le mieux à votre état émotionnel actuel :
                         <input className="ml-2" type="number" placeholder="Numéros case grille" {...register('moodBefore', { required: true })} />
                     </div>
                 </label>
@@ -86,7 +86,7 @@ const ConsigneVideo = (setCurrentQuestion, emotion) => {
     return (
         <div className="h-full flex flex-col justify-between items-center">
             <div>
-                <div>Vous allez visionner une courte video, en voici le résumé :</div>
+                <div>Vous allez visionner une courte vidéo, en voici le résumé :</div>
                 <div>{emotion === "sad" ? sadVid : neutralVid}</div>
             </div>
             <div>Restez attentif et regardez la vidéo en entier.</div>
@@ -123,7 +123,7 @@ const SurveyVideo = (setCurrentQuestion, setSurveyAfter) => {
             <form className="h-full flex flex-col items-start" onSubmit={handleSubmit(onSubmit)}>
                 <label>
                     <div className="text-left">
-                        Entrez de nouveau le numéros de la case de la grille qui correspond le mieux à votre état émotionnel actuelle :
+                        Entrez de nouveau le numéros de la case de la grille qui correspond le mieux à votre état émotionnel actuel :
                         <input className="ml-2" type="number" placeholder="0" {...register('moodAfter', { required: true })} />
                     </div>
                 </label>
@@ -138,8 +138,8 @@ const ConsigneRTTest = (setCurrentQuestion) => (
     <div className="h-full flex flex-col justify-between items-center">
         <div>
             <div>Vous allez faire un test de temps de réaction.</div>
-            <div>Lorsque l'arrière plan change de couleur, cliquez n'importe où le plus vite possible.</div>
-            <div>La prochaine question sera un entraînement d'un seule essai.</div>
+            <div>Lorsque l'arrière-plan change de couleur, cliquez n'importe où le plus vite possible.</div>
+            <div>La prochaine question sera un entraînement d'un seul essai.</div>
         </div>
         <NextQuestionButton setCurrentQuestion={setCurrentQuestion} />
     </div>
@@ -154,7 +154,7 @@ const TrialRTTest = (setCurrentQuestion) => {
     const testEndedDiv = <div className="h-full flex flex-col justify-between items-center">
         <div>
             <div>Votre temps de réaction : {RT}</div>
-            <div>Prêt pour le vrais test ? Passez à la question suivante.</div>
+            <div>Prêt pour le vrai test ? Passez à la question suivante.</div>
         </div>
         <NextQuestionButton setCurrentQuestion={setCurrentQuestion} />
     </div>

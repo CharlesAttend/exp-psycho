@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useForm } from 'react-hook-form';
+import fig_circumplex from './figure_circumplex_model.png'
 
 const Question = ({ id, setCurrentQuestion, onRTUpdate, emotion, setSurvey, handleSubmitButtonClick, setSurveyAfter }) => {
     const QuestionList = [
@@ -48,10 +49,8 @@ const Survey = (setCurrentQuestion, setSurvey) => {
     };
 
     return (
-        <div className="h-full ml-10">
-            {/* faire le css de l'image */}
-            <div><img src="" alt="" /></div>
-            <form className="h-full flex flex-col justify-center items-start" onSubmit={handleSubmit(onSubmit)}>
+        <div className="flex flex-col lg:flex-row h-full sm:ml-10">
+            <form className="flex flex-col items-start" onSubmit={handleSubmit(onSubmit)}>
                 <label>
                     Votre prénom :
                     <input className="ml-2" type="text" placeholder="Prénom" {...register('firstName', { required: true })} />
@@ -69,12 +68,14 @@ const Survey = (setCurrentQuestion, setSurvey) => {
                     </select>
                 </label>
                 <label>
-                    Entrez le numéros de la case de la grille qui correspond le mieux à votre état émotionnel actuelle :
-                    <br />
-                    <input className="ml-2" type="number" placeholder="Numéros case grille" {...register('moodBefore', { required: true })} />
+                    <div className="text-left">
+                        Entrez le numéros de la case de la grille qui correspond le mieux à votre état émotionnel actuelle :
+                        <input className="ml-2" type="number" placeholder="Numéros case grille" {...register('moodBefore', { required: true })} />
+                    </div>
                 </label>
-                <input className="mt-7 text-xl p-2 border-2 rounded-md hover:bg-gray-50" type="submit" value="Valider 👌" />
+                <input className="mt-7 self-center text-xl p-2 border-2 rounded-md hover:bg-gray-50" type="submit" value="Valider 👌" />
             </form>
+            <img src={fig_circumplex} className="my-2 object-scale-down h-full lg:h-5/6" alt="" />
         </div>
     )
 }
@@ -117,18 +118,18 @@ const SurveyVideo = (setCurrentQuestion, setSurveyAfter) => {
         setSurveyAfter(data);
         setCurrentQuestion((prevState) => prevState + 1)
     };
-    // css /!\ !!! 
     return (
-        <div className="flex h-full ml-10">
-            <div><img src="" alt="" /></div>
-            <form className="h-full flex flex-col justify-center items-start" onSubmit={handleSubmit(onSubmit)}>
+        <div className="flex flex-col lg:flex-row h-full sm:ml-10">
+            <form className="h-full flex flex-col items-start" onSubmit={handleSubmit(onSubmit)}>
                 <label>
-                    Entrez de nouveau le numéros de la case de la grille qui correspond le mieux à votre état émotionnel actuelle :
-                    <br />
-                    <input className="ml-2" type="number" placeholder="0" {...register('moodAfter', { required: true })} />
+                    <div className="text-left">
+                        Entrez de nouveau le numéros de la case de la grille qui correspond le mieux à votre état émotionnel actuelle :
+                        <input className="ml-2" type="number" placeholder="0" {...register('moodAfter', { required: true })} />
+                    </div>
                 </label>
-                <input className="mt-7 text-xl p-2 border-2 rounded-md hover:bg-gray-50" type="submit" value="Valider 👌" />
+                <input className="self-center mt-7 text-xl p-2 border-2 rounded-md hover:bg-gray-50" type="submit" value="Valider 👌" />
             </form>
+            <img src={fig_circumplex} className="my-2 object-scale-down h-full sm:h-4/5 lg:h-full" alt="" />
         </div>
     )
 }
@@ -224,18 +225,29 @@ const ReactionTimeTest = ({ callback }) => {
     )
 }
 
-const FinalQuestion = (setCurrentQuestion, handleSubmitButtonClick) => (
-    <div className="h-full flex flex-col items-center justify-between">
-        <div>
-            <div>C'est terminé, merci beaucoup de votre participation !</div>
-            <div>Vous pouvez envoyer vos résultats en cliquant sur le dernier bouton, puis fermer la page.</div>
+const FinalQuestion = (setCurrentQuestion, handleSubmitButtonClick) => {
+    const [clicked, setClicked] = useState(0);
+
+    const callback = (txt) => {
+        setClicked(1)
+    };
+    return (
+        <div className="h-full flex flex-col items-center justify-between">
+            <div>
+                <div>C'est terminé, merci beaucoup de votre participation !</div>
+                <div>Vous pouvez envoyer vos résultats en cliquant sur le dernier bouton, puis fermer la page.</div>
+            </div>
+            <button className="text-xl p-2 border-2 rounded-md hover:bg-gray-50"
+                onClick={(e) => {
+                    if (!clicked){
+                        handleSubmitButtonClick(callback);
+                    }
+                }}>
+                {clicked ? "Fait ✔️📨" : "Envoyer mes résultats 📮"}
+            </button>
         </div>
-        <button className="text-xl p-2 border-2 rounded-md hover:bg-gray-50"
-            onClick={(e) => handleSubmitButtonClick()}>
-            Envoyer mes résultats !
-        </button>
-    </div>
-)
+    )
+}
 
 const NextQuestionButton = ({ setCurrentQuestion }) => (
     <button className="text-xl p-2 border-2 rounded-md hover:bg-gray-50"

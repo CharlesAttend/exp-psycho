@@ -12,7 +12,7 @@ function App() {
   const [emotion, _setEmotion] = useState(choose(['sad', 'neutral']))
   console.log(emotion);
 
-  const handleSubmitButtonClick = () => {
+  const handleSubmitButtonClick = (cb) => {
       //do web request
       const body = {
         survey: {...survey, ...surveyAfter},
@@ -27,7 +27,7 @@ function App() {
       };
       fetch('https://621bb200768a4e10209a9b6e.mockapi.io/result', requestOptions)
       .then(response => response.json())
-      .then(data => console.log("worked", data));
+      .then(data => cb("Ca a marché ! ✔️"));
   };
   
   return (

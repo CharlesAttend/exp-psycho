@@ -174,7 +174,7 @@ const QuestionRTTest = (setCurrentQuestion, onRTUpdate) => {
         });
         console.log("RT:", RT);
     }
-    if (nbEssai < 5) {
+    if (nbEssai < 15) {
         return <div className="h-full w-full"><ReactionTimeTest key={nbEssai} callback={cb} /></div>
     }
     else {

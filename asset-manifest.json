@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/exp-psycho/static/css/main.0d8e3a7c.css",
-    "main.js": "/exp-psycho/static/js/main.26856060.js",
+    "main.js": "/exp-psycho/static/js/main.c121bff6.js",
     "static/media/figure_circumplex_model.png": "/exp-psycho/static/media/figure_circumplex_model.7150b6471d06558e8678.png",
     "index.html": "/exp-psycho/index.html",
     "main.0d8e3a7c.css.map": "/exp-psycho/static/css/main.0d8e3a7c.css.map",
-    "main.26856060.js.map": "/exp-psycho/static/js/main.26856060.js.map"
+    "main.c121bff6.js.map": "/exp-psycho/static/js/main.c121bff6.js.map"
   },
   "entrypoints": [
     "static/css/main.0d8e3a7c.css",
-    "static/js/main.26856060.js"
+    "static/js/main.c121bff6.js"
   ]
 }

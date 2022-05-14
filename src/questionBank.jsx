@@ -144,6 +144,7 @@ const ConsigneRTTest = (setCurrentQuestion) => (
         <NextQuestionButton setCurrentQuestion={setCurrentQuestion} />
     </div>
 )
+
 const TrialRTTest = (setCurrentQuestion) => {
     const [RT, setRT] = useState(0);
     const [isFinish, setIsFinish] = useState(false)
@@ -174,7 +175,7 @@ const QuestionRTTest = (setCurrentQuestion, onRTUpdate) => {
         });
         console.log("RT:", RT);
     }
-    if (nbEssai < 15) {
+    if (nbEssai < 2) {
         return <div className="h-full w-full"><ReactionTimeTest key={nbEssai} callback={cb} /><div>{nbEssai+1}/{15}</div></div>
     }
     else {
@@ -228,7 +229,7 @@ const ReactionTimeTest = ({ callback }) => {
 const FinalQuestion = (setCurrentQuestion, handleSubmitButtonClick) => {
     const [clicked, setClicked] = useState(0);
 
-    const callback = (txt) => {
+    const callback = () => {
         setClicked(1)
     };
     return (

@@ -175,7 +175,7 @@ const QuestionRTTest = (setCurrentQuestion, onRTUpdate) => {
         console.log("RT:", RT);
     }
     if (nbEssai < 15) {
-        return <div className="h-full w-full"><ReactionTimeTest key={nbEssai} callback={cb} /></div>
+        return <div className="h-full w-full"><ReactionTimeTest key={nbEssai} callback={cb} /><div>{nbEssai+1}/{15}</div></div>
     }
     else {
         return (
@@ -219,7 +219,7 @@ const ReactionTimeTest = ({ callback }) => {
     }, [compteur, intervalID])
 
     return (
-        <div className={reaction ? "bg-red-600 h-full flex flex-col items-center justify-center" : "bg-black h-full flex flex-col items-center justify-center"} onClick={reaction ? ((e) => { callback(performance.now() - timeBefore); }) : undefined}>
+        <div className={reaction ? "bg-red-600 h-95/100 flex flex-col items-center justify-center" : "bg-black h-95/100 flex flex-col items-center justify-center"} onClick={reaction ? ((e) => { callback(performance.now() - timeBefore); }) : undefined}>
             {!isStarted && (<div className="border-2 rounded-lg p-3 text-white">{compteur}</div>)}
         </div>
     )
